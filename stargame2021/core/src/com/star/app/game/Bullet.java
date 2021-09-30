@@ -41,5 +41,4 @@ public class Bullet implements Poolable {
             deactivate();
         }
     }
-
 }

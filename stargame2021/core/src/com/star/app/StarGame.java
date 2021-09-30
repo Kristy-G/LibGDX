@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.star.app.screen.GameScreen;
 
+
 public class StarGame extends Game {
     private SpriteBatch batch;
     private GameScreen gameScreen;
@@ -27,3 +28,4 @@ public class StarGame extends Game {
         batch.dispose();
     }
 }
+
