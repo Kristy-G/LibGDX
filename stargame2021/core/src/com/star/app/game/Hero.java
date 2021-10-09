@@ -1,7 +1,6 @@
 package com.star.app.game;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -9,8 +8,6 @@ import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.utils.StringBuilder;
-import com.star.app.screen.ScreenManager;
 import com.star.app.screen.utils.Assets;
 
 public class Hero {
@@ -30,15 +27,15 @@ public class Hero {
     private Weapon currentWeapon;
 
     public Circle getHitArea() {
-        return hitArea;
+        return this.hitArea;
     }
 
     public float getAngle() {
-        return angle;
+        return this.angle;
     }
 
     public int getScore() {
-        return score;
+        return this.score;
     }
 
     public void addScore(int amount) {
@@ -46,141 +43,142 @@ public class Hero {
     }
 
     public Vector2 getVelocity() {
-        return velocity;
+        return this.velocity;
     }
 
     public Vector2 getPosition() {
-        return position;
+        return this.position;
     }
 
     public Hero(GameController gc) {
         this.gc = gc;
         this.texture = Assets.getInstance().getAtlas().findRegion("ship");
-        this.position = new Vector2(640, 360);
-        this.velocity = new Vector2(0, 0);
-        this.angle = 0.0f;
-        this.enginePower = 500.0f;
+        this.position = new Vector2(640.0F, 360.0F);
+        this.velocity = new Vector2(0.0F, 0.0F);
+        this.angle = 0.0F;
+        this.enginePower = 500.0F;
         this.hp = 100;
         this.stringBuilder = new StringBuilder();
-        this.hitArea = new Circle(position, 26);
-        this.currentWeapon = new Weapon(
-                gc, this, "Laser", 0.2f, 1, 600, 300,
-                new Vector3[]{
-                        new Vector3(28, 0, 0),
-                        new Vector3(28, 90, 20),
-                        new Vector3(28, -90, -20)
-                }
-        );
+        this.hitArea = new Circle(this.position, 26.0F);
+        this.currentWeapon = new Weapon(gc, this, "Laser", 0.2F, 1, 600.0F, 300, new Vector3[]{new Vector3(28.0F, 0.0F, 0.0F), new Vector3(28.0F, 90.0F, 20.0F), new Vector3(28.0F, -90.0F, -20.0F)});
     }
 
     public void render(SpriteBatch batch) {
-        batch.draw(texture, position.x - 32, position.y - 32, 32, 32, 64, 64, 1, 1,
-                angle);
+        batch.draw(this.texture, this.position.x - 32.0F, this.position.y - 32.0F, 32.0F, 32.0F, 64.0F, 64.0F, 1.0F, 1.0F, this.angle);
     }
 
     public void renderGUI(SpriteBatch batch, BitmapFont font) {
-        stringBuilder.clear();
-        stringBuilder.append("SCORE: ").append(scoreView).append("\n");
-        stringBuilder.append("HP: ").append(hp).append("\n");
-        stringBuilder.append("MONEY: ").append(money).append("\n");
-        stringBuilder.append("BULLETS: ").append(currentWeapon.getCurBullets()).append(" / ")
-                .append(currentWeapon.getMaxBullets()).append("\n");
-        font.draw(batch, stringBuilder, 20, 700);
+        this.stringBuilder.delete(0, stringBuilder.length());
+        this.stringBuilder.append("SCORE: ").append(this.scoreView).append("\n");
+        this.stringBuilder.append("HP: ").append(this.hp).append("\n");
+        this.stringBuilder.append("MONEY: ").append(this.money).append("\n");
+        this.stringBuilder.append("BULLETS: ").append(this.currentWeapon.getCurBullets()).append(" / ").append(this.currentWeapon.getMaxBullets()).append("\n");
+        font.draw(batch, this.stringBuilder, 20.0F, 700.0F);
     }
 
     public void takeDamage(int amount) {
-        hp -= amount;
+        this.hp -= amount;
     }
 
     public void consume(PowerUp p) {
-        switch (p.getType()) {
+        switch(p.getType()) {
             case MEDKIT:
-                hp += p.getPower();
+                this.hp += p.getPower();
                 break;
             case MONEY:
-                money += p.getPower();
+                this.money += p.getPower();
                 break;
             case AMMOS:
-                currentWeapon.addAmmos(p.getPower());
-                break;
+                this.currentWeapon.addAmmos(p.getPower());
         }
+
     }
 
     public void update(float dt) {
-        fireTimer += dt;
-        updateScore(dt);
-        if (Gdx.input.isKeyPressed(Input.Keys.P)) {
-            tryToFire();
+        this.fireTimer += dt;
+        this.updateScore(dt);
+        if (Gdx.input.isKeyPressed(44)) {
+            this.tryToFire();
         }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.A)) {
-            angle += 180.0f * dt;
+        if (Gdx.input.isKeyPressed(29)) {
+            this.angle += 180.0F * dt;
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.D)) {
-            angle -= 180.0f * dt;
+
+        if (Gdx.input.isKeyPressed(32)) {
+            this.angle -= 180.0F * dt;
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.W)) {
-            velocity.x += MathUtils.cosDeg(angle) * enginePower * dt;
-            velocity.y += MathUtils.sinDeg(angle) * enginePower * dt;
+
+        if (Gdx.input.isKeyPressed(51)) {
+            Vector2 var10000 = this.velocity;
+            var10000.x += MathUtils.cosDeg(this.angle) * this.enginePower * dt;
+            var10000 = this.velocity;
+            var10000.y += MathUtils.sinDeg(this.angle) * this.enginePower * dt;
         }
-        position.mulAdd(velocity, dt);
-        hitArea.setPosition(position);
-        float stopKoef = 1.0f - 1.0f * dt;
-        if (stopKoef < 0) {
-            stopKoef = 0;
+
+        this.position.mulAdd(this.velocity, dt);
+        this.hitArea.setPosition(this.position);
+        float stopKoef = 1.0F - 1.0F * dt;
+        if (stopKoef < 0.0F) {
+            stopKoef = 0.0F;
         }
-        velocity.scl(stopKoef);
-        if (velocity.len() > 50.0f) {
-            float bx = position.x + MathUtils.cosDeg(angle + 180) * 20;
-            float by = position.y + MathUtils.sinDeg(angle + 180) * 20;
-            for (int i = 0; i < 2; i++) {
-                gc.getParticleController().setup(
-                        bx + MathUtils.random(-4, 4), by + MathUtils.random(-4, 4),
-                        velocity.x * -0.3f + MathUtils.random(-20, 20), velocity.y * -0.3f + MathUtils.random(-20, 20),
-                        0.5f,
-                        1.2f, 0.2f,
-                        1.0f, 0.3f, 0.0f, 1.0f,
-                        1.0f, 1.0f, 1.0f, 1.0f
-                );
+
+        this.velocity.scl(stopKoef);
+        if (this.velocity.len() > 50.0F) {
+            float bx = this.position.x + MathUtils.cosDeg(this.angle + 180.0F) * 20.0F;
+            float by = this.position.y + MathUtils.sinDeg(this.angle + 180.0F) * 20.0F;
+
+            for(int i = 0; i < 2; ++i) {
+                this.gc.getParticleController().setup(bx + (float)MathUtils.random(-4, 4), by + (float)MathUtils.random(-4, 4), this.velocity.x * -0.3F + (float)MathUtils.random(-20, 20), this.velocity.y * -0.3F + (float)MathUtils.random(-20, 20), 0.5F, 1.2F, 0.2F, 1.0F, 0.3F, 0.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F);
             }
-
-
         }
-        checkSpaceBorders();
+
+        this.checkSpaceBorders();
     }
 
     private void updateScore(float dt) {
-        if (scoreView < score) {
-            scoreView += 1000 * dt;
-            if (scoreView > score) {
-                scoreView = score;
+        if (this.scoreView < this.score) {
+            this.scoreView = (int)((float)this.scoreView + 1000.0F * dt);
+            if (this.scoreView > this.score) {
+                this.scoreView = this.score;
             }
         }
+
     }
 
     private void tryToFire() {
-        if (fireTimer > 0.2) {
-            fireTimer = 0.0f;
-            currentWeapon.fire();
+        if ((double)this.fireTimer > 0.2D) {
+            this.fireTimer = 0.0F;
+            this.currentWeapon.fire();
         }
+
     }
 
     private void checkSpaceBorders() {
-        if (position.x < 32f) {
-            position.x = 32f;
-            velocity.x *= -1;
+        Vector2 var10000;
+        if (this.position.x < 32.0F) {
+            this.position.x = 32.0F;
+            var10000 = this.velocity;
+            var10000.x *= -1.0F;
         }
-        if (position.x > ScreenManager.SCREEN_WIDTH - 32f) {
-            position.x = ScreenManager.SCREEN_WIDTH - 32f;
-            velocity.x *= -1;
+
+        if (this.position.x > 1248.0F) {
+            this.position.x = 1248.0F;
+            var10000 = this.velocity;
+            var10000.x *= -1.0F;
         }
-        if (position.y < 32f) {
-            position.y = 32f;
-            velocity.y *= -1;
+
+        if (this.position.y < 32.0F) {
+            this.position.y = 32.0F;
+            var10000 = this.velocity;
+            var10000.y *= -1.0F;
         }
-        if (position.y > ScreenManager.SCREEN_HEIGHT - 32f) {
-            position.y = ScreenManager.SCREEN_HEIGHT - 32f;
-            velocity.y *= -1;
+
+        if (this.position.y > 688.0F) {
+            this.position.y = 688.0F;
+            var10000 = this.velocity;
+            var10000.y *= -1.0F;
         }
+
     }
 }
