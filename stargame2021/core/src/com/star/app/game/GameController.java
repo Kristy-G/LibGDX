@@ -1,5 +1,7 @@
 package com.star.app.game;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 
@@ -11,6 +13,7 @@ public class GameController {
     private PowerUpsController powerUpsController = new PowerUpsController(this);
     private Hero hero = new Hero(this);
     private Vector2 tmpVec = new Vector2(0.0F, 0.0F);
+    private Boolean pause = false;
 
     public PowerUpsController getPowerUpsController() {
         return this.powerUpsController;
@@ -44,13 +47,18 @@ public class GameController {
     }
 
     public void update(float dt) {
-        this.background.update(dt);
-        this.hero.update(dt);
-        this.asteroidController.update(dt);
-        this.bulletController.update(dt);
-        this.powerUpsController.update(dt);
-        this.particleController.update(dt);
-        this.checkCollisions();
+        if (Gdx.input.isKeyPressed(62)){
+            pause = !pause;
+        }
+        if (!pause){
+            this.background.update(dt);
+            this.hero.update(dt);
+            this.asteroidController.update(dt);
+            this.bulletController.update(dt);
+            this.powerUpsController.update(dt);
+            this.particleController.update(dt);
+            this.checkCollisions();
+        }
     }
 
     public void checkCollisions() {
@@ -110,6 +118,5 @@ public class GameController {
                 p.deactivate();
             }
         }
-
     }
 }

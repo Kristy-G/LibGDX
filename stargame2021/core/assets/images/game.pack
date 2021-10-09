@@ -24,6 +24,13 @@ simpleButton
   orig: 320, 80
   offset: 0, 0
   index: -1
+simpleButton2
+  rotate: false
+  xy: 2, 502
+  size: 80, 30
+  orig: 80, 30
+  offset: 0, 0
+  index: -1
 ship
   rotate: false
   xy: 260, 2
