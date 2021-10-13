@@ -3,6 +3,7 @@ package com.star.app.game;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.star.app.game.helpers.Poolable;
+import com.star.app.screen.ScreenManager;
 
 public class Bullet implements Poolable {
     private GameController gc;
@@ -11,42 +12,53 @@ public class Bullet implements Poolable {
     private boolean active;
 
     public Vector2 getVelocity() {
-        return this.velocity;
+        return velocity;
     }
 
     public Vector2 getPosition() {
-        return this.position;
+        return position;
     }
 
+    @Override
     public boolean isActive() {
-        return this.active;
+        return active;
     }
 
     public Bullet(GameController gc) {
         this.gc = gc;
-        this.position = new Vector2(0.0F, 0.0F);
-        this.velocity = new Vector2(0.0F, 0.0F);
+        this.position = new Vector2(0, 0);
+        this.velocity = new Vector2(0, 0);
         this.active = false;
     }
 
     public void deactivate() {
-        this.active = false;
+        active = false;
     }
 
     public void activate(float x, float y, float vx, float vy) {
-        this.position.set(x, y);
-        this.velocity.set(vx, vy);
-        this.active = true;
+        position.set(x, y);
+        velocity.set(vx, vy);
+        active = true;
     }
 
     public void update(float dt) {
-        this.position.mulAdd(this.velocity, dt);
-        float bx = this.position.x;
-        float by = this.position.y;
-        this.gc.getParticleController().setup(bx + (float)MathUtils.random(-4, 4), by + (float)MathUtils.random(-4, 4), this.velocity.x * -0.3F + (float)MathUtils.random(-20, 20), this.velocity.y * -0.3F + (float)MathUtils.random(-20, 20), 0.05F, 1.5F, 0.2F, 1.0F, 0.3F, 0.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F);
-        if (this.position.x < -20.0F || this.position.x > 1300.0F || this.position.y < -20.0F || this.position.y > 740.0F) {
-            this.deactivate();
-        }
+        position.mulAdd(velocity, dt);
+        float bx = position.x ;
+        float by = position.y ;
+        gc.getParticleController().setup(
+                bx + MathUtils.random(-4, 4), by + MathUtils.random(-4, 4),
+                velocity.x * -0.3f + MathUtils.random(-20, 20), velocity.y * -0.3f + MathUtils.random(-20, 20),
+                0.05f,
+                1.5f, 0.2f,
+                1.0f, 0.3f, 0.0f, 1.0f,
+                1.0f, 1.0f, 1.0f, 1.0f
+        );
 
+
+        if (position.x < -20 || position.x > ScreenManager.SCREEN_WIDTH + 20 ||
+                position.y < -20 || position.y > ScreenManager.SCREEN_HEIGHT + 20) {
+            deactivate();
+        }
     }
+
 }
