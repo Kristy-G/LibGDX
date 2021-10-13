@@ -23,6 +23,10 @@ public class PowerUp implements Poolable {
     private Type type;
     private int power;
 
+    public void setVelocity(Vector2 velocity) {
+        this.velocity = velocity;
+    }
+
     public Type getType() {
         return type;
     }

@@ -139,6 +139,13 @@ public class GameController {
             }
         }
 
+        for (int i = 0; i < powerUpsController.getActiveList().size(); i++) {
+            PowerUp p = powerUpsController.getActiveList().get(i);
+            if (hero.getPosition().dst(p.getPosition()) < 200) {
+                p.setVelocity(new Vector2(hero.getPosition().x, hero.getPosition().y));
+            }
+        }
+
     }
 
     public void dispose() {
