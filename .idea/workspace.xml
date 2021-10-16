@@ -22,13 +22,33 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bce8459-dabe-4dc3-9c1a-32be1ebe14d0" name="Default Changelist" comment="L_5">
+    <list default="true" id="5bce8459-dabe-4dc3-9c1a-32be1ebe14d0" name="Default Changelist" comment="HW_6">
+      <change afterPath="$PROJECT_DIR$/stargame2021/core/assets/audio/mortal.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stargame2021/core/assets/audio/music.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stargame2021/core/assets/audio/shoot.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stargame2021/core/assets/audio/Взрыв с осколками.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stargame2021/core/assets/audio/Взрыв.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stargame2021/core/assets/shaders/fragment.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stargame2021/core/assets/shaders/vertex.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stargame2021/tools/images/asteroid.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stargame2021/tools/images/bullet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stargame2021/tools/images/nlo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stargame2021/tools/images/powerups.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stargame2021/tools/images/ship.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stargame2021/tools/images/shortButton.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stargame2021/tools/images/simpleButton.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stargame2021/tools/images/smButton.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stargame2021/tools/images/star16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stargame2021/tools/texturepacker-gui.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stargame2021/core/assets/images/game.pack" beforeDir="false" afterPath="$PROJECT_DIR$/stargame2021/core/assets/images/game.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/game/Asteroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/game/Asteroid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/game/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/screen/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/screen/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/game/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/game/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/game/PowerUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/game/PowerUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/game/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/game/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/game/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/game/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/game/WorldRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/game/WorldRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/screen/MenuScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/screen/MenuScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/screen/ScreenManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/screen/ScreenManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/screen/utils/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/stargame2021/core/src/com/star/app/screen/utils/Assets.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +89,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="L_5" />
+        <entry key="$PROJECT_DIR$" value="Lesson6" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -90,16 +110,18 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../5/stargame2021" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.star.app.screen.utils" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\LibGDX_JAVA\LibGDX" />
+      <recent name="D:\LibGDX_JAVA\LibGDX\stargame2021" />
+      <recent name="D:\LibGDX_JAVA\LibGDX\stargame2021\core\src\com\star\app" />
+      <recent name="D:\LibGDX_JAVA\LibGDX\stargame2021\core\src\com\star\app\screen" />
       <recent name="D:\LibGDX_JAVA\LibGDX\stargame2021\core\assets\images" />
-      <recent name="D:\LibGDX_JAVA\LibGDX\stargame2021\core\src\com\star\app\game" />
-      <recent name="D:\LibGDX_JAVA\LibGDX\stargame2021\core\assets" />
     </key>
   </component>
   <component name="RunManager">
@@ -187,7 +209,28 @@
       <option name="project" value="LOCAL" />
       <updated>1633762259326</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="HomeWork_5">
+      <created>1633777439143</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1633777439143</updated>
+    </task>
+    <task id="LOCAL-00010" summary="L_6">
+      <created>1634142252468</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1634142252468</updated>
+    </task>
+    <task id="LOCAL-00011" summary="HW_6">
+      <created>1634144397325</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1634144397325</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,25 +252,28 @@
     <MESSAGE value="HomeWork_3.1" />
     <MESSAGE value="HomeWork_4" />
     <MESSAGE value="L_5" />
-    <option name="LAST_COMMIT_MESSAGE" value="L_5" />
+    <MESSAGE value="HomeWork_5" />
+    <MESSAGE value="L_6" />
+    <MESSAGE value="HW_6" />
+    <option name="LAST_COMMIT_MESSAGE" value="HW_6" />
   </component>
   <component name="WindowStateProjectService">
     <state x="439" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1633538314887">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="439" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1633538314887" />
-    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1633772437517">
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1634143062546">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1633772437517" />
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1634143062546" />
     <state x="129" y="55" key="DiffContextDialog" timestamp="1633538623060">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="129" y="55" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1633538623060" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1633761229255">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1634391684888">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1633761229255" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1634391684888" />
     <state x="561" y="262" key="Github.ShareDialog" timestamp="1631955104342">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -236,30 +282,30 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="506" y="69" key="Github.UntrackedFilesDialog/0.0.1366.728@0.0.1366.728" timestamp="1631955112855" />
-    <state width="1306" height="148" key="GridCell.Tab.0.bottom" timestamp="1633777144572">
+    <state width="1306" height="148" key="GridCell.Tab.0.bottom" timestamp="1634144438339">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1306" height="148" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1633777144572" />
-    <state width="1306" height="148" key="GridCell.Tab.0.center" timestamp="1633777144572">
+    <state width="1306" height="148" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1634144438339" />
+    <state width="1306" height="148" key="GridCell.Tab.0.center" timestamp="1634144438338">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1306" height="148" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1633777144572" />
-    <state width="1306" height="148" key="GridCell.Tab.0.left" timestamp="1633777144572">
+    <state width="1306" height="148" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1634144438338" />
+    <state width="1306" height="148" key="GridCell.Tab.0.left" timestamp="1634144438337">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1306" height="148" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1633777144572" />
-    <state width="1306" height="148" key="GridCell.Tab.0.right" timestamp="1633777144572">
+    <state width="1306" height="148" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1634144438337" />
+    <state width="1306" height="148" key="GridCell.Tab.0.right" timestamp="1634144438338">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1306" height="148" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1633777144572" />
-    <state x="400" y="66" key="RollbackChangesDialog" timestamp="1633773663379">
+    <state width="1306" height="148" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1634144438338" />
+    <state x="400" y="66" key="RollbackChangesDialog" timestamp="1634142097220">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="400" y="66" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1633773663379" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1633769486485">
+    <state x="400" y="66" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1634142097219" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1634144404453">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1633769486485" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1634144404453" />
     <state x="65" y="0" key="new project wizard" timestamp="1633601139821">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
