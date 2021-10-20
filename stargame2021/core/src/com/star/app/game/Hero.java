@@ -2,6 +2,7 @@ package com.star.app.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -43,6 +44,7 @@ public class Hero {
     private Shop shop;
     private Weapon[] weapons;
     private int weaponNum;
+    private Sound dangerSound;
 
     public Circle getMagneticField() {
         return magneticField;
@@ -113,6 +115,7 @@ public class Hero {
         createWeapons();
         this.weaponNum = 0;
         this.currentWeapon = weapons[weaponNum];
+        this.dangerSound = Assets.getInstance().getAssetManager().get("audio/danger.mp3");
     }
 
     public void render(SpriteBatch batch) {
@@ -133,6 +136,7 @@ public class Hero {
 
     public void takeDamage(int amount) {
         hp -= amount;
+        if (hp < hpMax / 5) dangerSound.play();
     }
 
     public void consume(PowerUp p) {
